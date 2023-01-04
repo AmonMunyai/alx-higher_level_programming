@@ -20,14 +20,26 @@ listint_t *insert_node(listint_t **head, int number)
 
 	/* populate node */
 	node->n = number;
+	node->next = NULL;
 
 	/* insert node */
-	while (temp)
+	while (temp && temp->next)
 	{
-		if (node->n > temp->n && node->n < temp->next->n)
+		if (node->n >= temp->n && node->n <= temp->next->n)
 		{
 			node->next = temp->next;
 			temp->next = node;
+			break;
+		}
+		else if (node->n <= temp->n)
+		{
+			node->next = temp;
+			*head = node;
+			break;
+		}
+		else if (node->n >= temp->next->n && temp->next->next == NULL)
+		{
+			temp->next->next = node;
 			break;
 		}
 		temp = temp->next;
