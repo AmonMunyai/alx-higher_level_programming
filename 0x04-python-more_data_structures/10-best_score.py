@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 
 def best_score(a_dictionary):
-    if a_dictionary:
-        keys = list(a_dictionary.keys())
-        v = a_dictionary[keys[0]]
-        for key in keys:
-            if a_dictionary[key] > v:
-                k, v = key, a_dictionary[key]
-        return k
-    return None
+    if not isinstance(a_dictionary, dict) or len(a_dictionary) == 0:
+            return None
+
+    best = list(a_dictionary.keys())[0]
+    highest = a_dictionary[best]
+    for k, v in a_dictionary.items():
+        if v > highest:
+            highest = v
+            best = k
+    return best
