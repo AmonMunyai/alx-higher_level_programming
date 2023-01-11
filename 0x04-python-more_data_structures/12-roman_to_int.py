@@ -1,19 +1,31 @@
 #!/usr/bin/python3
 
 def roman_to_int(roman_string):
-    if (roman_string is None or
-            type(roman_string) is not str or
-            len(roman_string)) == 0:
-        return 0
+    if (not isinstance(roman_string, str) or roman_string is None):
+        return (0)
+
+    r_dictionary = {
+        "I": 1,
+        "V": 5,
+        "X": 10,
+        "L": 50,
+        "C": 100,
+        "D": 500,
+        "M": 1000
+    }
 
     num = 0
-    dic = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+
+    for r_numeral in roman_string:
+        if r_numeral not in r_dictionary.keys():
+            return (0)
+
     for i, j in zip(roman_string, roman_string[1:]):
-        if i not in list(dic.keys()):
-            return 0
-        elif dic[i] >= dic[j]:
-            num += dic[i]
+        if r_dictionary[i] >= r_dictionary[j]:
+            num += r_dictionary[i]
         else:
-            num -= dic[i]
-    num += dic[roman_string[-1]]
-    return num
+            num -= r_dictionary[i]
+    
+    num += r_dictionary[roman_string[-1]]
+
+    return (num)
