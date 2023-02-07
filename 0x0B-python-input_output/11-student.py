@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-# 11-student.py
-# Brennan D Baraban <375@holbertonschool.com>
 """Defines a class Student."""
 
 
