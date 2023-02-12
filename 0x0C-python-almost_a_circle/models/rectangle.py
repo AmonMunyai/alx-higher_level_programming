@@ -95,16 +95,17 @@ class Rectangle(Base):
             [print('#', end='') for w in range(self.__width)]
             print()
     
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Update the Rectangle.
 
         Args:
-            *args (ints): no-keyword argument attribute values.
+            *args (ints): New `no-keyword argument` attribute values.
                 - 1st argument should be the id attribute
                 - 2nd argument should be the width attribute
                 - 3rd argument should be the height attribute
                 - 4th argument should be the x attribute
                 - 5th argument should be the y attribute
+            **kwargs (dict): New key/value pairs of attrubutes.
         """
         if args and len(args) != 0:
             i = 0
@@ -123,6 +124,22 @@ class Rectangle(Base):
                 elif i == 4:
                     self.y = arg
                 i += 1
+
+        elif kwargs and len(kwargs) != 0:
+            for key, value in kwargs.items():
+                if key == "id":
+                    if value is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = id
+                if key == "width":
+                    self.width = value
+                if key == "height":
+                    self.height = value
+                if key == "x":
+                    self.x = value
+                if key == "y":
+                    self.y = value
 
     def __str__(self):
         """Returns the print() and str() representation of Rectangle."""
