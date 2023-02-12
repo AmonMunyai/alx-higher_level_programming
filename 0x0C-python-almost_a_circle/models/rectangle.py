@@ -131,7 +131,7 @@ class Rectangle(Base):
                     if value is None:
                         self.__init__(self.width, self.height, self.x, self.y)
                     else:
-                        self.id = id
+                        self.id = value
                 if key == "width":
                     self.width = value
                 if key == "height":
