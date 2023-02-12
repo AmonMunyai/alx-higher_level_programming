@@ -44,7 +44,7 @@ class Rectangle(Base):
     def height(self):
         """Get the height of the Rectangle."""
         return self.__height
-    
+
     @height.setter
     def height(self, value):
         if not isinstance(value, int):
@@ -57,7 +57,7 @@ class Rectangle(Base):
     def x(self):
         """Get the x coordinate of the Rectangle."""
         return self.__x
-    
+
     @x.setter
     def x(self, value):
         if not isinstance(value, int):
@@ -78,23 +78,23 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
-    
+
     def area(self):
         """Returns the area value of the Rectangle"""
         return self.__width * self.__height
-    
+
     def display(self):
         """Displays the Rectangle with the character `#`"""
-        if self.__width == 0  or self.__height == 0:
+        if self.__width == 0 or self.__height == 0:
             print()
             return
-        
+
         [print() for y in range(self.__y)]
         for h in range(self.__height):
             [print(' ', end='') for x in range(self.__x)]
             [print('#', end='') for w in range(self.__width)]
             print()
-    
+
     def update(self, *args, **kwargs):
         """Update the Rectangle.
 
