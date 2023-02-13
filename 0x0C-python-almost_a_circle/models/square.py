@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Defines a class Square that inherits from Rectangle."""
-from re import X
 from models.rectangle import Rectangle
 
 
@@ -29,7 +28,7 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """Update the Square.
-        
+
         Args:
             *args (ints): New atttribute values.
                 - 1st argument represents the id attribute.
@@ -52,7 +51,7 @@ class Square(Rectangle):
                     self.x = arg
                 elif i == 3:
                     self.y = arg
-                i+= 1
+                i += 1
 
         elif kwargs and len(kwargs) != 0:
             for key, value in kwargs.items():
@@ -67,7 +66,7 @@ class Square(Rectangle):
                     self.x = value
                 elif key == "y":
                     self.y = value
-    
+
     def to_dictionary(self):
         """Returns the dictionary representation of a Square."""
         return {
@@ -76,7 +75,10 @@ class Square(Rectangle):
                 "size": self.size,
                 "y": self.y
             }
-    
+
     def __str__(self):
         """Return the print() and str() representation of a Square."""
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
+        return "[Square] ({}) {}/{} - {}".format(self.id,
+                                                 self.x,
+                                                 self.y,
+                                                 self.size)
