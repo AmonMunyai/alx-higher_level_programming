@@ -13,7 +13,9 @@ Unittest classes:
     TestRectangle_update_kwargs
     TestRectangle_to_dictionary
 """
-import io, sys, unittest
+import io
+import sys
+import unittest
 from models.base import Base
 from models.rectangle import Rectangle
 
@@ -799,6 +801,7 @@ class TestRectangle_to_dictionary(unittest.TestCase):
         r = Rectangle(10, 2, 4, 1, 2)
         with self.assertRaises(TypeError):
             r.to_dictionary(1)
+
 
 if __name__ == "__main__":
     unittest.main()
